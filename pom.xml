@@ -23,8 +23,8 @@
         <module>dataStruct</module>
         <module>leetcode</module>
         <module>jvm</module>
-        <module>thread</module>
         <module>effectivejava</module>
+        <module>thread01</module>
     </modules>
 
     <dependencies>
