@@ -6,17 +6,18 @@ package thread.c_000;
  * Date: 2021/8/31 12:13 上午
  * FileName: T03_Sleep_Yield_Join
  * Description: com.java.thread.c_001
- *
- *
+ * <p>
+ * <p>
  * sleep,wait,join 区别
  */
 public class T03_Sleep_Yield_Join {
 
     public static void main(String[] args) {
-////        testSleep();
-        testYield();
-//        testJoin();
+        // testSleep();
+        // testYield();
+        testJoin();
     }
+
     /**
      * @Description: t.join(), t线程抢占执行
      * @Param:
@@ -38,7 +39,7 @@ public class T03_Sleep_Yield_Join {
 
         Thread thread1 = new Thread(() -> {
             try {
-                //先去执行thread方法，底层是调用wait方法，让当前线程先进入到等待队列
+                // 先去执行thread方法，底层是调用wait方法，让当前线程先进入到等待队列
                 thread.join();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -68,6 +69,7 @@ public class T03_Sleep_Yield_Join {
         new Thread(() -> {
             for (int i = 0; i < 100; i++) {
                 System.out.println("A" + i);
+                // 虽然yield，但是并不表示其他线程就一定执行，有可能依然是当前线程执行
                 if (i % 2 == 0) Thread.yield();
             }
         }).start();
@@ -75,7 +77,7 @@ public class T03_Sleep_Yield_Join {
         new Thread(() -> {
             for (int i = 0; i < 100; i++) {
                 System.out.println("B" + i);
-                if (i % 2 == 0) Thread.yield();
+                if (i % 2 == 1) Thread.yield();
             }
         }).start();
     }

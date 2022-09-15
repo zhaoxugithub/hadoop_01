@@ -43,7 +43,6 @@ public class T003_lock_condition {
         }).start();
 
         new Thread(() -> {
-
             try {
                 lock.lock();
                 for (char c : chars) {

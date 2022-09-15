@@ -33,7 +33,6 @@ public class TicketSeller2 {
                     //可能在list.remove()方法的时候出现.ArrayIndexOutOfBoundsException（数组下标越界）,
                     // 因为在list.size()和list.remove方法之间不能保证原子性
                     System.out.println(Thread.currentThread().getName()+"售出了票" + list.remove(0));
-
                 }
             },"t"+i).start();
         }

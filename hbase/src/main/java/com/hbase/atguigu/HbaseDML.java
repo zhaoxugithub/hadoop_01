@@ -49,7 +49,13 @@ public class HbaseDML {
      * @param columnName
      */
     public static void getCells(String nameSpace, String tableName, String rowKey,
-                                String columnFamily, String columnName) {
+                                String columnFamily, String columnName) throws IOException {
+
+        // 获取table
+        Table table = connection.getTable(TableName.valueOf(nameSpace, tableName));
+
+        Put put = new Put(Bytes.toBytes(rowKey));
+
 
     }
 

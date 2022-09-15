@@ -15,7 +15,6 @@ public class NettyIOClient_01 {
         try {
             //客户端需要一个事件循环组
             NioEventLoopGroup eventExecutors = new NioEventLoopGroup();
-
             //创建客户端启动对象
             //注意客户端使用的不是serverBootstrap 而是bootstrap
             Bootstrap bootstrap = new Bootstrap();
@@ -36,7 +35,5 @@ public class NettyIOClient_01 {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 }
