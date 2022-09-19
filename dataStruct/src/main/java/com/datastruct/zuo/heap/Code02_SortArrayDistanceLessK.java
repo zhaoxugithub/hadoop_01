@@ -14,6 +14,7 @@ public class Code02_SortArrayDistanceLessK {
             return;
         }
         int index = 0;
+        //默认是小根堆
         PriorityQueue<Integer> queue = new PriorityQueue();
         for (; index <= Math.min(k, arr.length - 1); index++) {
             queue.add(arr[index]);

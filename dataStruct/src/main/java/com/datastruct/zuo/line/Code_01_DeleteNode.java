@@ -10,7 +10,7 @@ public class Code_01_DeleteNode {
         }
     }
 
-    //头结点翻转
+    // 头结点翻转
     public ListNode reserveHead(ListNode head) {
         ListNode next = null;
         ListNode pre = null;
@@ -24,14 +24,17 @@ public class Code_01_DeleteNode {
     }
 
 
-    //因为删除的节点有可能是头结点，所以链表的返回需要返回另外的一个头结点
+    // 因为删除的节点有可能是头结点，所以链表的返回需要返回另外的一个头结点
     public ListNode removeElements2(ListNode head, int val) {
-        //删除都节点等于val
-        //首先先删除头结点等于val的
-        while (head != null) {
-            if (head.value != val) {
-                break;
-            }
+        // 删除都节点等于val
+        // 首先先删除头结点等于val的
+        // while (head != null) {
+        //     if (head.value != val) {
+        //         break;
+        //     }
+        //     head = head.next;
+        // }
+        while (head.value == val) {
             head = head.next;
         }
         ListNode pre = head;
@@ -41,7 +44,7 @@ public class Code_01_DeleteNode {
             if (cur.value == val) {
                 pre.next = cur.next;
             } else {
-                //整理只能
+                // 整理只能
                 pre = cur;
             }
             cur = cur.next;
@@ -59,13 +62,14 @@ public class Code_01_DeleteNode {
 
     public void testListNode() {
         ListNode head = new ListNode(3);
-        ListNode cur = head;
+        head.next = new ListNode(3);
+        ListNode cur = head.next;
         for (int i = 1; i < 10; i++) {
             cur.next = new ListNode(i);
             cur = cur.next;
         }
         showList(head);
-        ListNode newHead = reserveHead(head);
+        ListNode newHead = removeElements2(head, 3);
         System.out.println();
         showList(newHead);
     }

@@ -17,13 +17,16 @@ public class Code02_HeapSort {
             return;
         }
         //这个循环走完，可以保证这个数组是一个大根堆
+        // 一个一个元素的来
         for (int i = 0; i < array.length; i++) {
             heapInsert(array, i);
         }
         int heapSize = array.length;
         swap(array, 0, --heapSize);
         while (heapSize > 0) {
+            //在0-heapSize 范围内进行大根堆的重建
             heapify(array, 0, heapSize);
+            //每一次构建完大跟堆之后，都将堆最大的元素和最后一个元素交换
             swap(array, 0, --heapSize);
         }
     }

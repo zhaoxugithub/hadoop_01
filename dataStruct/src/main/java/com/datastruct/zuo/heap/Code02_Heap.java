@@ -40,14 +40,14 @@ public class Code02_Heap {
         public int pop() {
             int temp = heap[0];
             swap(heap, 0, --heapSize);
-
-            //作用：将0-heapsize范围上调成大根堆
+            // 作用：将0-heapsize范围上调成大根堆
             heapify(heap, 0, heapSize);
             return temp;
         }
 
         // 新加进来的数，现在停在了index位置，请依次往上移动，
         // 移动到0位置，或者干不掉自己的父亲了，停！
+        // 指标index往上移动
         public void heapInsert(int[] arr, int index) {
             while (arr[index] > arr[(index - 1) / 2]) {
                 swap(arr, index, (index - 1) / 2);
@@ -57,18 +57,19 @@ public class Code02_Heap {
 
         // 从index位置，往下看，不断的下沉
         // 停：较大的孩子都不再比index位置的数大；已经没孩子了
+        // index 是不断的往下移动
         public void heapify(int[] arr, int index, int heapSize) {
-            //节点的左孩子
+            // 节点的左孩子
             int left = index * 2 + 1;
             while (left < heapSize) {
-                //largest 是最大值的下标
+                // largest 是最大值的下标
                 int largest = left + 1 < heapSize && arr[left] > arr[left + 1] ? left : left + 1;
                 largest = arr[index] > arr[largest] ? index : largest;
                 // 如果根节点的是最大值
                 if (largest == index) {
                     break;
                 }
-                //如果根节点不是最大值
+                // 如果根节点不是最大值
                 swap(arr, index, largest);
                 index = largest;
                 left = index * 2 + 1;
