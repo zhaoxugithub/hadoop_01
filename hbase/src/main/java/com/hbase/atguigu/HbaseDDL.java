@@ -1,5 +1,6 @@
 package com.hbase.atguigu;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.hadoop.hbase.NamespaceDescriptor;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.*;
@@ -7,6 +8,7 @@ import org.apache.hadoop.hbase.util.Bytes;
 
 import java.io.IOException;
 
+@Slf4j
 public class HbaseDDL {
 
     public static Connection connection = HbaseConnectSingleton.connection;
@@ -42,6 +44,7 @@ public class HbaseDDL {
 
             admin.createNamespace(builder.build());
         } catch (IOException e) {
+            log.info("命名空间已经存在 e ={}", e);
             System.out.println("命名空间已经存在");
             e.printStackTrace();
         }

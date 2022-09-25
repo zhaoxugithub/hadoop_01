@@ -18,18 +18,10 @@ slf4j 是 log4j 的加强版
 
  */
 public class LogDemo03 {
-
-
     public static void main(String[] args) {
-
         Logger logger = LoggerFactory.getLogger(LogDemo03.class);
-
         int score = 999;
         String name = "张三";
-
         logger.info("{} 的分数是 {}",name,score);
-
-
     }
-
 }
