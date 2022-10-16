@@ -18,11 +18,11 @@ public class ArrayUtils {
      * @return
      */
     public static int[] generateRandomArray(int maxSize, int maxValue, int flag) {
-        //Math.random [0,1)
-        //Math.random *N [0,N)
-        //Math.random * (N+1)  [0,N]
+        // Math.random [0,1)
+        // Math.random *N [0,N)
+        // Math.random * (N+1)  [0,N]
         int length = 0;
-        //获取一个length=maxSize
+        // 获取一个length=maxSize
         while (length < maxSize - 1) {
             length = (int) ((maxSize + 1) * Math.random());
         }
@@ -45,6 +45,11 @@ public class ArrayUtils {
             arr_int[i] = arr[i];
         }
         return arr_int;
+    }
+
+
+    public static Integer[] intToInteger(int[] array) {
+        return Arrays.stream(array).boxed().toArray(Integer[]::new);
     }
 
     /**
@@ -81,7 +86,9 @@ public class ArrayUtils {
         if (arr1 == null && arr2 == null) {
             return true;
         }
-        if (arr1.length != arr2.length) return false;
+        if (arr1.length != arr2.length) {
+            return false;
+        }
         for (int i = 0; i < arr1.length; i++) {
             if (arr1[i] != arr2[i]) {
                 return false;
@@ -135,10 +142,10 @@ public class ArrayUtils {
 
         // a /(2^b)
         System.out.println(a >> b);
-        //无符号右移
+        // 无符号右移
         System.out.println(a >>> b);
 
-        //或运算
+        // 或运算
         System.out.println(a | b);
 
         System.out.println(6 ^ 5);

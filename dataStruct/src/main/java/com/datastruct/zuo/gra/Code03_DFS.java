@@ -1,8 +1,10 @@
 package com.datastruct.zuo.gra;
 
 import com.datastruct.zuo.gra.struct.Node;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashSet;
+import java.util.Set;
 import java.util.Stack;
 
 /**
@@ -14,6 +16,7 @@ import java.util.Stack;
  **/
 
 // 图的深度遍历
+@Slf4j
 public class Code03_DFS {
 
 
@@ -41,10 +44,36 @@ public class Code03_DFS {
                     // 为什么要把上游节点重新压进去？
                     stack.push(pop);
                     stack.push(next);
-
                     set.add(next);
                     System.out.println(next);
                     // 为什么需要break？？
+                    break;
+                }
+            }
+        }
+    }
+
+    public static void dfs2(Node node) {
+        if (node == null) {
+            return;
+        }
+        Stack<Node> stack = new Stack<>();
+        Set<Node> set = new HashSet<>();
+
+        stack.add(node);
+        set.add(node);
+
+        while (!stack.isEmpty()) {
+            Node first = stack.pop();
+            log.info("first={}", first);
+            // todo something
+            for (Node next : first.nexts) {
+                if (!set.contains(next)) {
+                    stack.push(first);
+                    stack.push(next);
+
+                    set.add(next);
+                    log.info("next ={}", next);
                     break;
                 }
             }

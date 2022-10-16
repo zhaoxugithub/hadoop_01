@@ -1,10 +1,12 @@
 package com.datastruct.zuo.gra;
 
 import com.datastruct.zuo.gra.struct.Node;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Set;
 
 /**
  * ClassName Code03_BFS
@@ -15,6 +17,7 @@ import java.util.Queue;
  **/
 
 // 图的宽度遍历
+@Slf4j
 public class Code03_BFS {
 
 
@@ -34,7 +37,7 @@ public class Code03_BFS {
             Node poll = queue.poll();
             System.out.println(poll.value);
             for (Node next : poll.nexts) {
-                //如果没有被遍历过（set里面不存在）就添加到队里面
+                // 如果没有被遍历过（set里面不存在）就添加到队里面
                 if (!set.contains(next)) {
                     queue.add(next);
                     set.add(next);
@@ -43,6 +46,26 @@ public class Code03_BFS {
         }
     }
 
+    public static void bfs2(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        Queue<Node> queue = new LinkedList<>();
+        Set<Node> set = new HashSet<>();
+        queue.add(node);
+        set.add(node);
+        while (!queue.isEmpty()) {
+            Node first = queue.poll();
+            log.info("first={}", first);
+            for (Node next : first.nexts) {
+                if (!set.contains(next)) {
+                    queue.add(next);
+                    set.add(node);
+                }
+            }
+        }
+    }
 
     public static void main(String[] args) {
 
