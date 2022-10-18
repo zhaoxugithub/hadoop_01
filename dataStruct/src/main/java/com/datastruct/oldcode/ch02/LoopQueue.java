@@ -53,8 +53,9 @@ public class LoopQueue<E> implements Queue<E> {
         data[front] = null;
         front = (front + 1) % data.length;
         size--;
-        if (size == getCapacity() / 4 && getCapacity() / 2 != 0)
+        if (size == getCapacity() / 4 && getCapacity() / 2 != 0) {
             resize(getCapacity() / 2);
+        }
         return res;
     }
 
@@ -85,8 +86,9 @@ public class LoopQueue<E> implements Queue<E> {
         res.append("front [");
         for (int i = front; i != tail; i = (i + 1) % data.length) {
             res.append(data[i]);
-            if ((i + 1) % data.length != tail)
+            if ((i + 1) % data.length != tail) {
                 res.append(", ");
+            }
         }
         res.append("] tail");
         return res.toString();

@@ -155,8 +155,9 @@ public class Array<E> {
         res.append('[');
         for (int i = 0; i < size; i++) {
             res.append(data[i]);
-            if (i != size - 1)
+            if (i != size - 1) {
                 res.append(", ");
+            }
         }
         res.append(']');
         return res.toString();

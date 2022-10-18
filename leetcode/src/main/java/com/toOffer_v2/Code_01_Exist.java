@@ -19,8 +19,9 @@ public class Code_01_Exist {
                 Character[] characters = new Character[4];
                 if (i == 0) {
                     if (j == 0) {
-                        if (board[0].length < 2)
+                        if (board[0].length < 2) {
                             characters[2] = board[i][j + 1];
+                        }
                         characters[3] = board[i + 1][j + 1];
                     } else {
 

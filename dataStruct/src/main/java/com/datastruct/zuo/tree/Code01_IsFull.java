@@ -17,7 +17,6 @@ public class Code01_IsFull {
         }
     }
 
-
     public static boolean isFull(TreeNode root) {
         if (root == null) {
             return true;
@@ -27,7 +26,7 @@ public class Code01_IsFull {
         return (height << 1) - 1 == num;
     }
 
-    //获取高度
+    // 获取高度
     public static int getHeight(TreeNode node) {
         if (node == null) {
             return 0;

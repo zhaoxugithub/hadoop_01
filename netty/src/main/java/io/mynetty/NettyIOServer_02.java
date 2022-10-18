@@ -27,7 +27,7 @@ public class NettyIOServer_02 {
                     pipeline.addLast(new AcceptClientHandler());
                 }
             }).bind(new InetSocketAddress("192.168.1.100", 9991));
-            //对上述添加监听
+            // 对上述添加监听
             future.addListener(new ChannelFutureListener() {
                 @Override
                 public void operationComplete(ChannelFuture channelFuture) throws Exception {
@@ -45,14 +45,14 @@ public class NettyIOServer_02 {
         }
     }
 
-    //监听客户端事件
+    // 监听客户端事件
     private static class AcceptClientHandler extends ChannelInboundHandlerAdapter {
         @Override
         public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
             System.out.println("客户端注册成功...");
         }
 
-        //监听客户端读入事件，只有当客户端发送数据的时候才会触发这个方法
+        // 监听客户端读入事件，只有当客户端发送数据的时候才会触发这个方法
         @Override
         public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
             /*Channel channel = ctx.channel();
@@ -68,7 +68,7 @@ public class NettyIOServer_02 {
 //                        while (true) {
                             Thread.sleep(5000);
                             //如果是字符需要指定编码格式
-//                            ctx.writeAndFlush(Unpooled.copiedBuffer("hello 你好", CharsetUtil.UTF_8));
+//                           ctx.writeAndFlush(Unpooled.copiedBuffer("hello 你好", CharsetUtil.UTF_8));
                             String msg = Thread.currentThread().getName() + "-" + ctx.channel().remoteAddress() + "\n";
                             ctx.writeAndFlush(Unpooled.copiedBuffer(msg.getBytes()));
 //                        }
@@ -93,19 +93,18 @@ public class NettyIOServer_02 {
                 }
             }, 1, TimeUnit.SECONDS);*/
 
-
             ctx.channel().eventLoop().execute(new Runnable() {
                 @Override
                 public void run() {
-                        //这里是wile死循环，如果worker
-                        try {
-                            Thread.sleep(1000);
-                            //如果是字符需要指定编码格式
-                            String msg = Thread.currentThread().getName() + "-" + ctx.channel().remoteAddress() + "\n";
-                            ctx.writeAndFlush(Unpooled.copiedBuffer(msg.getBytes()));
-                        } catch (InterruptedException e) {
-                            throw new RuntimeException(e);
-                        }
+                    // 这里是wile死循环，如果worker
+                    try {
+                        Thread.sleep(1000);
+                        // 如果是字符需要指定编码格式
+                        String msg = Thread.currentThread().getName() + "-" + ctx.channel().remoteAddress() + "\n";
+                        ctx.writeAndFlush(Unpooled.copiedBuffer(msg.getBytes()));
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             });
         }

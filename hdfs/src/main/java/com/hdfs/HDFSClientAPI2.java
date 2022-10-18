@@ -38,21 +38,21 @@ public class HDFSClientAPI2 {
         }
     }
 
-    //创建目录
+    // 创建目录
     public static void createDir() throws IOException {
         fs.mkdirs(new Path("/serendipity/demo02"));
     }
 
-    //创建文件
+    // 创建文件
     public static void createFile01() throws IOException {
-        //上传文件，如果目录不存在就会创建
+        // 上传文件，如果目录不存在就会创建
         FSDataOutputStream fsDataOutputStream = fs.create(new Path("/serendipity/demo03/1.txt"));
         fsDataOutputStream.writeBytes("Hello World");
         fsDataOutputStream.flush();
     }
 
 
-    //将本地文件通过IO流的方式上传到HDFS上
+    // 将本地文件通过IO流的方式上传到HDFS上
     public static void upFromLocal() throws IOException {
         FSDataOutputStream fsDataOutputStream = fs.create(new Path("/serendipity/demo03/2.txt"));
         FileInputStream fileInputStream = new FileInputStream("D:\\desktop\\新建文本文档.txt");
@@ -61,24 +61,24 @@ public class HDFSClientAPI2 {
         fsDataOutputStream.close();
     }
 
-    //上传到hdfs
+    // 上传到hdfs
     public static void uploadToHdfs() throws IOException {
         fs.copyFromLocalFile(new Path("D:\\soft\\hadoop-3.2.2.tar.gz"), new Path("/serendipity/demo04/"));
     }
 
 
-    //分块上传
+    // 分块上传
     public static void uploadBlock() {
 
     }
 
 
-    //删除文件
+    // 删除文件
     public static void removeFile() throws IOException {
         fs.deleteOnExit(new Path("/serendipity/demo2"));
     }
 
-    //列出目录
+    // 列出目录
     public static void listDirsOrFiles() throws IOException {
         FileStatus[] fileStatuses = fs.listStatus(new Path("/serendipity/"));
         Arrays.stream(fileStatuses).forEach((x) -> {
@@ -91,8 +91,7 @@ public class HDFSClientAPI2 {
         });
     }
 
-
-    //随机读取块文件
+    // 随机读取块文件
     public static void readBlock() throws IOException {
         RemoteIterator<LocatedFileStatus> locatedFileStatusRemoteIterator = fs.listFiles(new Path("/serendipity/demo04"), true);
         while (locatedFileStatusRemoteIterator.hasNext()) {
@@ -108,8 +107,7 @@ public class HDFSClientAPI2 {
         }
     }
 
-
-    //下载到本地
+    // 下载到本地
     public static void downLoadLocal() throws IOException {
         fs.copyToLocalFile(new Path("/serendipity/demo03/2.txt"), new Path("D:\\document\\idea\\hadoop_01\\hdfs\\src\\main\\java\\com\\hdfs\\"));
     }

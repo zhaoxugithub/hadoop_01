@@ -12,6 +12,7 @@ import java.util.List;
  * Description: com.ch01
  */
 public class InorderTraversal {
+
     public class TreeNode {
         int val;
         TreeNode left;
@@ -19,6 +20,7 @@ public class InorderTraversal {
 
         TreeNode() {
         }
+
 
         TreeNode(int val) {
             this.val = val;
