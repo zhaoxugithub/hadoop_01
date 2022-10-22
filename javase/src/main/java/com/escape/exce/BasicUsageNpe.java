@@ -13,7 +13,6 @@ import java.util.List;
 @SuppressWarnings("all")
 public class BasicUsageNpe {
 
-
     private static boolean stringEquals(String x, String y) {
         return x.equals(y);
     }
@@ -41,7 +40,7 @@ public class BasicUsageNpe {
         List<User> users_ = null;
 
         users.add(user);
-        //注意：这里会报空指针
+        // 注意：这里会报空指针
         users.addAll(users_);
     }
 }

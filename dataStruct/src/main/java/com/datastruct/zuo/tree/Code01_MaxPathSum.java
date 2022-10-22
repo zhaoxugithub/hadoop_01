@@ -22,8 +22,6 @@ public class Code01_MaxPathSum {
     }
 
     public int maxPathSum(TreeNode root) {
-
-
         return 0;
     }
 

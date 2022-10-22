@@ -11,7 +11,6 @@ package com.escape.exce;
 // 深度理解什么是空指针异常
 public class WhatIsNpe {
 
-
     public static class User {
 
         private String name;
@@ -55,7 +54,6 @@ public class WhatIsNpe {
         User user = new User();
         System.out.println(user.readBook().contains("MySQL"));
 
-
         // 第六种情况如下
         /*
           这个就容易产生空指针
@@ -83,8 +81,5 @@ public class WhatIsNpe {
             user.print()
 
          */
-
-
     }
-
 }
