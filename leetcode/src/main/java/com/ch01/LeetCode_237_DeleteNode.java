@@ -1,6 +1,7 @@
 package com.ch01;
 
-import com.datastruct.oldcode.ch06.ListNode;
+
+import com.common.ListNode;
 
 /**
  * ClassName LeetCode_237_DeleteNode
