@@ -42,8 +42,17 @@ public class OptionUsage {
         }
     }
 
+    private static void badUsageOptional() {
+
+        Optional<User> optional = Optional.ofNullable(null);
+        User user = optional.orElse(null); // good
+        user = optional.isPresent() ? optional.get() : null; // bad
+        log.info("user = ", user);
+    }
+
     public static void main(String[] args) {
         isUserEqualNull();
+        badUsageOptional();
         User user = null;
         // 这种方法创建一个空的Optional对象
         Optional<Object> optionalEmpty = Optional.empty();
