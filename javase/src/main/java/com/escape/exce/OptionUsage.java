@@ -43,7 +43,6 @@ public class OptionUsage {
     }
 
     private static void badUsageOptional() {
-
         Optional<User> optional = Optional.ofNullable(null);
         User user = optional.orElse(null); // good
         user = optional.isPresent() ? optional.get() : null; // bad

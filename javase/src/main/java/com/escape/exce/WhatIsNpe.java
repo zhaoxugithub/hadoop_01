@@ -25,19 +25,15 @@ public class WhatIsNpe {
             return null;
         }
     }
-
     /**
      * <h2>自定义一个运行时异常</h2>
      */
     public static class CustomException extends RuntimeException {
     }
-
     public static void main(String[] args) {
-
         // 第一种情况: 调用了空对象的实例方法
 //        User user = null;
 //        user.print();
-
         // 第二种情况: 访问了空对象的属性
 //        User user = null;
 //        System.out.println(user.name);

@@ -1,5 +1,7 @@
 package com.escape.exce;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * ClassName ExceptionProcess
  * Description 异常处理
@@ -8,6 +10,7 @@ package com.escape.exce;
  * Version 1.0
  **/
 @SuppressWarnings("all")
+@Slf4j
 public class ExceptionProcess {
 
     private static class User {
@@ -15,14 +18,17 @@ public class ExceptionProcess {
 
     /**
      * Java 异常本质 --抛出异常
+     * <p>
+     * 如果遇到一个步骤或者问题，导致后续代码无法继续执行下去的时候
+     * 需要捕获异常或者抛出异常
      */
     private void throwException() {
         User user = null;
-
         // 如果user为空就抛出异常
         if (user == null) {
             throw new NullPointerException();
         }
+        System.out.println("继续执行");
     }
 
     /**
@@ -47,8 +53,7 @@ public class ExceptionProcess {
             System.out.println(cce.getMessage());
             System.out.println(cce.getClass().getName());
         } catch (NullPointerException npe) {
-            System.out.println(npe.getMessage());
-            System.out.println(npe.getClass().getName());
+            log.warn("excepton message = {},className = {}", npe.getMessage(), npe.getClass().getName());
         }
     }
 
