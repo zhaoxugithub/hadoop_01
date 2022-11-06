@@ -12,43 +12,37 @@ import java.util.Arrays;
 public class ClassAPI {
 
     public static void main(String[] args) throws Exception {
-
         Class<?> aClass = Class.forName("com.old.reflect.Student");
-
-        // 获取成员变量、包括子类及父类，同时只能包含公共变量public
+        // 获取成员变量、包括子类及父类的成员变量，同时只能包含公共变量public
         Field[] fields = aClass.getFields();
-        log.info("fields = {}", Arrays.toString(fields));
         for (Field field : fields) {
-
-            log.info("class ={},class name ={},class type = {}", field, field.getName(), field.getType());
-            System.out.println(field);
-            System.out.println(field.getName());
-            System.out.println(field.getType());
-            // 修饰符
-            System.out.println(field.getModifiers());
-            System.out.println("-----------");
+            // 获取类中的成员变量
+            // field Modidfiers,变量修饰符
+            // 什么都不加 是0 ， public  是1 ，private 是 2 ，protected 是 4，static 是 8 ，final 是 16
+            log.info("field = {}", field.toString());
+            // getDeclaringClass() 获取成员变量的的所属类
+            log.info("fieldName={},fieldType={},fieldModifiers = {},FieldDeclaringClass={}",
+                    field.getName(), field.getType(), field.getModifiers(), field.getDeclaringClass());
         }
-
         System.out.println("===============================");
-
-
-        // 此方法返回的是当前类的所有属性，不仅仅局限于公共访问修饰符，所有的访问修饰符都可以拿到
+        // 此方法返回的是当前类（不包含父类）的所有属性，不仅仅局限于 公共访问修饰符，所有的访问修饰符都可以拿到
         Field[] declaredFields = aClass.getDeclaredFields();
         for (Field field : declaredFields) {
-            System.out.println(field.getName());
-
+            log.info("field={}", field);
         }
 
         System.out.println("===============================");
-        // 反在在一定程度上破坏了封装性，需要合理使用
+        // 反在在一定程度上破坏了封装性，需要合理使用,获取private 变量
         Field address = aClass.getDeclaredField("address");
         // 设置该属性是否能被访问，true表示能被访问，破坏了封装型
         address.setAccessible(true);
-        System.out.println(address.getName());
+        log.info("fieldName={}", address.getName());
         Object o = aClass.newInstance();
-        address.set(o, "北京");
-        System.out.println(((Student) o).getAddress());
-
+        if (o instanceof Student) {
+            address.set(o, "bj");
+            Student student = (Student) o;
+            log.info("student address={}", student.getAddress());
+        }
         System.out.println("=================================");
 
         // 获取成员方法、包括子类及父类，同时只能包含公共方法

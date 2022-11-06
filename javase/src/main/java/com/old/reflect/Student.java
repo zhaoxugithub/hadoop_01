@@ -1,7 +1,7 @@
 package com.old.reflect;
 
 public class Student extends Person {
-    public String className;
+    public String classRoom;
     private String address;
 
     public Student() {
@@ -10,12 +10,12 @@ public class Student extends Person {
 
     private Student(String name, int age, String className) {
         super(name, age);
-        this.className = className;
+        this.classRoom = className;
     }
 
     public Student(String name, int age, String className, String address) {
         super(name, age);
-        this.className = className;
+        this.classRoom = className;
         this.address = address;
     }
 
@@ -24,7 +24,7 @@ public class Student extends Person {
     }
 
     public void setClassName(String className) {
-        this.className = className;
+        this.classRoom = className;
     }
 
     public String getAddress() {
@@ -32,7 +32,7 @@ public class Student extends Person {
     }
 
     public String getClassName() {
-        return className;
+        return classRoom;
     }
 
     private void add(Integer a, Integer b) {
@@ -42,7 +42,7 @@ public class Student extends Person {
     @Override
     public String toString() {
         return "Student{" +
-                "className='" + className + '\'' +
+                "className='" + classRoom + '\'' +
                 ", address='" + address + '\'' +
                 '}';
     }
