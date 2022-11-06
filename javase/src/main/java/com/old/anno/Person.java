@@ -1,5 +1,7 @@
 package com.old.anno;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.lang.annotation.Annotation;
 
 /**
@@ -13,20 +15,18 @@ import java.lang.annotation.Annotation;
 public class Person {
 }
 
+@Slf4j
 class Student extends Person {
     public void test() {
         Class<Student> studentClass = Student.class;
+        // 获取Student上的所有注解（注解有继承）
         Annotation[] annotations = studentClass.getAnnotations();
         for (Annotation annotation : annotations) {
-            System.out.println(annotation);
-
+            log.info("annotation ={}", annotation);
         }
     }
 
     public static void main(String[] args) {
         new Student().test();
     }
-
- 
-
 }
