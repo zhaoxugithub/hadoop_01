@@ -8,7 +8,6 @@ package com.old.reflect.staticproxy;
  * Description: com.reflect.staticproxy
  */
 public class InterfaceImpl implements InterfaceA {
-
     @Override
     public void run() {
         System.out.println("process on .....");

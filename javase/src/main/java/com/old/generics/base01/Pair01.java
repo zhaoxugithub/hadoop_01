@@ -6,6 +6,8 @@ package com.old.generics.base01;
  * Date: 2022/4/11 23:28
  * FileName: Pair01
  * Description: com.generics.base01
+ *
+ * 定义一个范型类
  */
 public class Pair01<T> {
     private T first;

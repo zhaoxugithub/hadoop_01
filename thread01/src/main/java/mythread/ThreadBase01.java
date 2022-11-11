@@ -19,16 +19,15 @@ import java.util.concurrent.Executors;
  * 可见性：一个线程对共享变量的修改，另外一个线程可以立刻看到
  * 原子性
  * 有序性
- *
+ * <p>
  * //而更深层次的区别在于sleep方法只是暂时让出CPU的执行权，并不释放锁。而wait方法则需要释放锁。
  */
 public class ThreadBase01 {
-
     private class ThreadUnsafeExample {
         private Integer cnt = 0;
 
         public void add() {
-            cnt=cnt+1;
+            cnt = cnt + 1;
         }
 
         public Integer get() {
@@ -38,21 +37,16 @@ public class ThreadBase01 {
 
     @Test
     public void test() {
-
         final Integer ThreadSize = 1000;
         ThreadUnsafeExample threadUnsafeExample = new ThreadUnsafeExample();
-
         CountDownLatch countDownLatch = new CountDownLatch(ThreadSize);
-
         ExecutorService executorService = Executors.newCachedThreadPool();
-
         for (int i = 0; i < ThreadSize; i++) {
             executorService.execute(() -> {
                 threadUnsafeExample.add();
                 countDownLatch.countDown();
             });
         }
-
         // 主线程阻塞,直到上述线程执行成功之后才会执行以下程序
         try {
             countDownLatch.await();
@@ -62,6 +56,4 @@ public class ThreadBase01 {
         executorService.shutdown();
         System.out.println(threadUnsafeExample.get());
     }
-
-
 }

@@ -24,7 +24,6 @@ public class ReflectDemo01 {
         System.out.println(r);
     }
 
-
     public static void test02() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         // String 对象
         String s = "Hello world";

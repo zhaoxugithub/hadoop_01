@@ -17,7 +17,6 @@ public class Main {
         handler.evening();
     }
 
-
     public static void main(String[] args) {
         helloTest(new HelloImpl());
         System.out.println("----------");

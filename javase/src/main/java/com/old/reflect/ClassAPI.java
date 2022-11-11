@@ -39,7 +39,7 @@ public class ClassAPI {
         log.info("fieldName={}", address.getName());
         Object o = aClass.newInstance();
         if (o instanceof Student) {
-            address.set(o, "bj");
+            address.set(o, "北京");
             Student student = (Student) o;
             log.info("student address={}", student.getAddress());
         }
@@ -48,14 +48,14 @@ public class ClassAPI {
         // 获取成员方法、包括子类及父类，同时只能包含公共方法
         Method[] methods = aClass.getMethods();
         for (Method method : methods) {
-            System.out.println(method.getName());
+            log.info("class = {},method = {}", method.getDeclaringClass(), method.getName());
         }
 
         System.out.println("=================================");
         // 获取当前类的所有方法，包括私有方法
         Method[] declaredMethods = aClass.getDeclaredMethods();
         for (Method method : declaredMethods) {
-            System.out.println(method.getName());
+            log.info("class = {},method = {}", method.getDeclaringClass(), method.getName());
         }
         Method add = aClass.getDeclaredMethod("add", Integer.class, Integer.class);
         add.setAccessible(true);
@@ -65,7 +65,7 @@ public class ClassAPI {
         System.out.println("===============构造方法==================");
         Constructor<?>[] constructors = aClass.getConstructors();
         for (Constructor constructor : constructors) {
-            System.out.println(constructor.getName());
+            log.info("constructor={}", constructor.getName());
         }
 
         System.out.println("------------------");

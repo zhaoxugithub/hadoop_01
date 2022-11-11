@@ -7,16 +7,13 @@ import java.util.Map;
 
 @Data
 class Cat {
-
     private Integer id;
     private String name;
     private String color;
     private Long time;
 
-
     // private Cat() {
     // }
-
     public Cat() {
     }
 

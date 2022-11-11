@@ -17,7 +17,7 @@ public class TestLambda1 {
         TreeSet<Integer> treeSet = new TreeSet(comparator);
     }
 
-    //采用lambda
+    // 采用lambda
     public void test02() {
         Comparator<Integer> comparator = (o1, o2) -> o1.compareTo(o2);
         TreeSet<Integer> integers = new TreeSet<>(comparator);
@@ -33,7 +33,6 @@ public class TestLambda1 {
         TreeSet<Integer> integers = new TreeSet<Integer>(Integer::compareTo);
     }
 
-
     List<Employee> employees = Arrays.asList(
             new Employee("张三", 10, 10.00),
             new Employee("李四", 20, 20.00),
@@ -42,8 +41,7 @@ public class TestLambda1 {
             new Employee("田七", 50, 50.00)
     );
 
-
-    //需求；获取当前公司中员工年龄大于30的员工信息
+    // 需求；获取当前公司中员工年龄大于30的员工信息
     public void test03() {
         List<Employee> employees = filterEmployees(this.employees);
         employees.forEach(System.out::print);
@@ -59,7 +57,7 @@ public class TestLambda1 {
         return res;
     }
 
-    //需求：获取当前公司中员工工资大于30的员工信息
+    // 需求：获取当前公司中员工工资大于30的员工信息
     public void test04() {
         List<Employee> employees = filterEmployees2(this.employees);
         employees.forEach(System.out::print);
@@ -74,7 +72,6 @@ public class TestLambda1 {
         }
         return res;
     }
-
 
     //--------------采用匿名内部类表达式----策略模式----------------------------------------
     public void test05() {
@@ -107,7 +104,7 @@ public class TestLambda1 {
         return res;
     }
 
-    //采用lambda表达式----------------------------
+    // 采用lambda表达式----------------------------
     public void test07() {
         List<Employee> employees = filterEmployees3(this.employees, (e) -> e.getAge() > 30);
         employees.forEach(System.out::print);
@@ -118,16 +115,15 @@ public class TestLambda1 {
         employees.forEach(System.out::print);
     }
 
-    //Stream 优化
+    // Stream 优化
     public void test09() {
         employees.stream().filter((x) -> x.getSalary() > 35).limit(1).forEach(System.out::print);
     }
 
-    //Stream 优化+lambda
+    // Stream 优化+lambda
     @Test
     public void test10() {
         employees.stream().map(Employee::getName).forEach(System.out::println);
     }
-
 
 }
