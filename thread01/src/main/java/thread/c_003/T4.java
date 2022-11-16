@@ -25,6 +25,7 @@ public class T4 {
             Thread.sleep(2000);
             thread.interrupt();
             //表示main线程是否是中断的
+            System.out.println(thread.isInterrupted());
             System.out.println("stop 1->" + thread.interrupted());
             System.out.println("stop 2->" + thread.interrupted());
         } catch (InterruptedException e) {

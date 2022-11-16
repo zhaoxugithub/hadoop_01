@@ -41,7 +41,7 @@ public class HuaWeiTest {
                 System.out.println(result);
             }
             String zero = "";
-            for (int i = 0;i<8-yu;i++) {
+            for (int i = 0; i < 8 - yu; i++) {
                 zero = zero.concat("0");
             }
             String result = line.substring(rand * 8).concat(zero);
@@ -49,16 +49,14 @@ public class HuaWeiTest {
 
         }
 
-        HashMap<String,Integer> map = new HashMap<String,Integer>();
+        HashMap<String, Integer> map = new HashMap<String, Integer>();
         Set<String> strings = map.keySet();
         for (Map.Entry<String, Integer> stringIntegerEntry : map.entrySet()) {
 
         }
-
-
     }
 
-    public void test1(){
+    public void test1() {
         Scanner scanner = new Scanner(System.in);
         int num = scanner.nextInt();
         HashMap<Integer, Integer> map = new HashMap<>();

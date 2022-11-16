@@ -23,8 +23,8 @@ public class T1 {
         });
         thread.start();
 
-        //执行这个方法是让当前线程和thread进行通信
-        //由主线程去触发 thread线程的中断，这个时候Thread.currentThread().isInterrupted()才能能够判断出是否发生了中断
+        // 执行这个方法是让当前线程和thread进行通信
+        // 由主线程去触发 thread线程的中断，这个时候Thread.currentThread().isInterrupted()才能能够判断出是否发生了中断
         thread.interrupt();
 
         try {
@@ -33,11 +33,13 @@ public class T1 {
             e.printStackTrace();
         }
 
-        System.out.println("stop 1->  ----"+Thread.currentThread().isInterrupted());
+        System.out.println("stop 1->  ----" + Thread.currentThread().isInterrupted());
         // 表示的调用thread.interrupted方法的这个线程是否是中断状态，而不是thread这个线程
         /*
             Thread.currentThread().isInterrupted()) 与   thread.interrupted() 表示同一个线程
          */
         System.out.println("stop 1->" + thread.interrupted());
+
+        System.out.println("thread->" + thread.isInterrupted());
     }
 }

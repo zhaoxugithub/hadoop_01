@@ -67,5 +67,6 @@ public class ThreadUnsafeExample {
 
     public static void main(String[] args) {
         est();
+        // test1();
     }
 }

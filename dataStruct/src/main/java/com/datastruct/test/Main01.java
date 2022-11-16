@@ -13,6 +13,9 @@ public class Main01 {
         diGui(root.right);
     }
 
+    public void remove(){
+    }
+
 
     public static void main(String[] args) {
 
