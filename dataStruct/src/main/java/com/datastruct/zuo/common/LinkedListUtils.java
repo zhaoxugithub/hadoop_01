@@ -31,6 +31,20 @@ public class LinkedListUtils {
         return head;
     }
 
+
+    public static ListNode<Integer> copyLinkedNode(ListNode<Integer> head) {
+        ListNode<Integer> phead = new ListNode<>(-1);
+        ListNode<Integer> newHead = phead.next;
+        while (head != null) {
+            ListNode<Integer> node = new ListNode<>(head.val);
+            head = head.next;
+            phead.next = node;
+            phead = phead.next;
+        }
+        return newHead;
+    }
+
+
     /**
      * 打印单链表
      *

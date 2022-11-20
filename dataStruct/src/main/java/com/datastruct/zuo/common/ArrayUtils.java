@@ -47,6 +47,10 @@ public class ArrayUtils {
         return arr_int;
     }
 
+    public static int[] generateRandomEqualArray(int maxSize, int maxValue, int flag) {
+        return null;
+    }
+
 
     public static Integer[] intToInteger(int[] array) {
         return Arrays.stream(array).boxed().toArray(Integer[]::new);
@@ -136,20 +140,15 @@ public class ArrayUtils {
      * 位运算
      */
     public static void bitOperation() {
-
         int a = 8;
         int b = 2;
-
         // a /(2^b)
         System.out.println(a >> b);
         // 无符号右移
         System.out.println(a >>> b);
-
         // 或运算
         System.out.println(a | b);
-
         System.out.println(6 ^ 5);
-
         int x = 10;
         System.out.println(x & ((~x) + 1));
         System.out.println(x & ((~x) | 1));
@@ -162,7 +161,6 @@ public class ArrayUtils {
         printArr(array);
         BubbleSort.sort(array);
         printArr(array);*/
-
         bitOperation();
     }
 }

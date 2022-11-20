@@ -8,7 +8,6 @@ package com.old.enums;
  * Description: com.enums
  */
 public class EnumsDemo02 {
-
     public static void main(String[] args) {
         WeekDay sun = WeekDay.SUN;
         if (sun == WeekDay.SAT || sun == WeekDay.SUN) {

@@ -30,7 +30,7 @@ import java.util.function.Supplier;
 
 public class TestLambda3 {
 
-    //对象::实例方法名
+    // 对象::实例方法名
     @Test
     public void test01() {
 
@@ -45,7 +45,7 @@ public class TestLambda3 {
 
     @Test
     public void test02() {
-        //传统
+        // 传统
         Supplier<Employee> supplier = () -> new Employee("张三", 10, 10.00);
         Employee employee = supplier.get();
         System.out.print(employee);
@@ -54,10 +54,10 @@ public class TestLambda3 {
         Employee employee1 = new Employee("张三", 10, 10.00);
         String name = employee1.getName();
         Supplier<String> getName = employee1::getName;
-        System.out.print(getName);
+        System.out.print(getName.get());
     }
 
-    //类::静态方法名
+    // 类::静态方法名
     @Test
     public void test03() {
         Comparator<Integer> comparator = (x, y) -> Integer.compare(x, y);
@@ -69,7 +69,7 @@ public class TestLambda3 {
         System.out.println(compare2);
     }
 
-    //类::实例方法名
+    // 类::实例方法名
     public void test04() {
         BiPredicate<String, String> biPredicate = (x, y) -> x.equals(y);
         boolean test = biPredicate.test("ss", "vvv");
@@ -80,8 +80,8 @@ public class TestLambda3 {
         System.out.println(test1);
     }
 
-    //构造器引用
-    //有参构造
+    // 构造器引用
+    // 有参构造
     public void test05() {
         Function<Integer, Employee> function = (x) -> new Employee(x);
         Employee apply = function.apply(10);
@@ -92,7 +92,7 @@ public class TestLambda3 {
         System.out.println(apply1);
     }
 
-    //无参构造
+    // 无参构造
     public void test06() {
         Supplier<Employee> supplier = () -> new Employee();
         Employee employee = supplier.get();
@@ -103,7 +103,7 @@ public class TestLambda3 {
         System.out.println(employee1);
     }
 
-    //数组
+    // 数组
     public void test07() {
         Function<Integer, String[]> function = (x) -> new String[x];
         String[] apply = function.apply(10);

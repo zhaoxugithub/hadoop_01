@@ -27,7 +27,7 @@ import java.util.function.Supplier;
  */
 public class TestLambda2 {
 
-    //断言型接口
+    // 断言型接口
     public void test4() {
         List<String> strings = Arrays.asList("hello", "atguigu", "Lambda", "www", "ok");
         filterStr(strings, (x) -> x.length() > 3).forEach(System.out::print);
@@ -43,8 +43,7 @@ public class TestLambda2 {
         return list1;
     }
 
-
-    //函数式接口
+    // 函数式接口
     public void test03() {
         String xxx = filterStr2("xxx", (x) -> x.toUpperCase());
         System.out.println(xxx);
@@ -55,7 +54,7 @@ public class TestLambda2 {
     }
 
 
-    //供给型接口
+    // 供给型接口
     public void test02() {
         filterStr3(10, () -> (int) (Math.random() * 100)).forEach(System.out::print);
     }
@@ -70,7 +69,7 @@ public class TestLambda2 {
         return res;
     }
 
-    //消费性接口
+    // 消费性接口
     @Test
     public void test01() {
         filterStr4("zzz", System.out::println);

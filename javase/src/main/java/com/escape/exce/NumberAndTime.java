@@ -26,12 +26,10 @@ public class NumberAndTime {
         // decimal.setScale(2); 会报出异常
         BigDecimal result = decimal.setScale(12);
         System.out.println(result);
-
         // 向上取整（四舍五入）
         BigDecimal bigDecimal = decimal.setScale(2, BigDecimal.ROUND_HALF_UP);
         System.out.println(bigDecimal);
     }
-
     /*
         BigDecimal 做除法是出现除不尽的情况
      */
@@ -43,7 +41,6 @@ public class NumberAndTime {
         System.out.println(new BigDecimal(30).divide(new BigDecimal(7),
                 2, BigDecimal.ROUND_HALF_UP));
     }
-
     /*
         精度问题导致比较结果和预期的不一致
      */
@@ -55,7 +52,6 @@ public class NumberAndTime {
         // 相同
         System.out.println(decimal2.compareTo(decimal1) == 0);
     }
-
     /*
         SimpleDateFormat 可以解析大于/等于它定义的时间精度
         可以解析大于/等于他定义的时间精度，但是不能解析小于它定义的时间精度
