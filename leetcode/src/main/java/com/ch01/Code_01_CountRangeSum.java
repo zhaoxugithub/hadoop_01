@@ -11,12 +11,16 @@ public class Code_01_CountRangeSum {
 
 
     public int countRangeSum(int[] nums, int lower, int upper) {
-        if (nums == null || nums.length == 0) return 0;
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
         return process(nums, 0, nums.length - 1, lower, upper);
     }
 
     public int process(int[] nums, int l, int r, int lower, int upper) {
-        if (l == r) return nums[l] >= lower && nums[l] <= upper ? 1 : 0;
+        if (l == r) {
+            return nums[l] >= lower && nums[l] <= upper ? 1 : 0;
+        }
         int mid = l + ((r - l) >> 1 + 1);
         return process(nums, l, mid, lower, upper) + process(nums, mid + 1, r, lower, upper) + merge(nums, l, mid, r, lower, upper);
     }

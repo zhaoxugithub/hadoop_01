@@ -12,6 +12,41 @@ import java.util.Set;
  **/
 public class LeetCode_03_LengthOfLongestSubstring {
 
+    /*
+        abcabcbb
+     */
+    public static int lengthOfLongestSubstring2(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+        char[] charArray = s.toCharArray();
+        int len = s.length();
+
+        int i = 0;
+        int j = 0;
+        HashSet<Object> hashSet = new HashSet<>();
+        int result = 0;
+        /*
+            i
+            abccde
+               j
+         */
+
+        // dvdf
+        while (j < len) {
+            if (!hashSet.contains(charArray[j])) {
+                hashSet.add(charArray[j]);
+                j++;
+                result = Math.max(result, j - i);
+            } else {
+                hashSet.remove(charArray[i]);
+                i++;
+            }
+        }
+        return result;
+    }
+
+
     public static int lengthOfLongestSubstring(String s) {
 
         if (s == null) {

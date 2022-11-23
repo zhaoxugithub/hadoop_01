@@ -16,10 +16,13 @@ public class Test01 {
     public static void test01() {
         Map<String, String> map = new HashMap<>();
         LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();
-
-
+        WeakHashMap<String, String> weakHashMap = new WeakHashMap<>();
+        IdentityHashMap<String, String> identityHashMap = new IdentityHashMap<>();
         TreeMap<String, String> treeMap = new TreeMap<>();
+    }
 
+    public static void test02() {
+        ArrayList<String> strings = new ArrayList<>();
     }
 
     public static void main(String[] args) {
