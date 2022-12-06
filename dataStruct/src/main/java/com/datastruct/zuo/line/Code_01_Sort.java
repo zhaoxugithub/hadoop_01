@@ -151,7 +151,9 @@ public class Code_01_Sort {
             int largest = array[left + 1] > array[left] && left + 1 < heapSize ? left + 1 : left;
             largest = array[index] < array[largest] ? largest : index;
 
-            if (largest == index) break;
+            if (largest == index) {
+                break;
+            }
 
             ArrayUtils.swap(array, index, largest);
             index = largest;

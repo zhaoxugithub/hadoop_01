@@ -72,7 +72,9 @@ public class Code05_LowestLexicography {
             return;
         }
         for (int i = 0; i < strs.length; i++) {
-            if (visited[i]) continue;
+            if (visited[i]) {
+                continue;
+            }
             visited[i] = true;
             process3(strs, sum, s + strs[i], set, visited);
             visited[i] = false;

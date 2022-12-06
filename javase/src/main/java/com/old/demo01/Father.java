@@ -8,14 +8,12 @@ package com.old.demo01;
  * Description: com.duotai.demo01
  */
 public class Father {
-
     int a = 10;
 
     public void display() {
         say();
         run();
     }
-
 
     private void say() {
         System.out.println("fsay" + a);

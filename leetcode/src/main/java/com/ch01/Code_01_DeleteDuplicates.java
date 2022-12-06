@@ -28,7 +28,9 @@ public class Code_01_DeleteDuplicates {
 
     public ListNode deleteDuplicates(ListNode head) {
 
-        if (head == null || head.next == null) return head;
+        if (head == null || head.next == null) {
+            return head;
+        }
         ListNode pre = head;
         ListNode next = head.next;
 
@@ -45,6 +47,5 @@ public class Code_01_DeleteDuplicates {
         }
         return head;
     }
-
 
 }
