@@ -7,12 +7,11 @@ public class ArrayQueue {
     private int rear;
     private int capacity;
 
-
     // 创建队列的构造器
     public ArrayQueue(int arrMaxSize) {
         capacity = arrMaxSize;
         arr = new int[capacity];
-        front = -1;//指向队列头部，分析出 front 是指向队列头的前一个位置
+        front = -1;// 指向队列头部，分析出 front 是指向队列头的前一个位置
         rear = -1;// 指向队列尾，指向队列尾的数据(即就是队列最后一个数据)
     }
 

@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LeetCode_300_LengthOfLIS {
-
     public int lengthOfLIS(int[] nums) {
         if (nums.length == 0) {
             return 0;
         }
-
-        //存放的是以dp[i]开始的最长子序列的个数
+        // 存放的是以dp[i]开始的最长子序列的个数
         int[] dp = new int[nums.length];
         dp[0] = 1;
         int maxans = 1;
@@ -27,7 +25,5 @@ public class LeetCode_300_LengthOfLIS {
     }
 
     public static void main(String[] args) {
-
-
     }
 }

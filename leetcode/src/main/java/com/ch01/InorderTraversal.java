@@ -1,6 +1,5 @@
 package com.ch01;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +20,6 @@ public class InorderTraversal {
         TreeNode() {
         }
 
-
         TreeNode(int val) {
             this.val = val;
         }
@@ -32,7 +30,6 @@ public class InorderTraversal {
             this.right = right;
         }
     }
-
 
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> resultList = new ArrayList<>();
@@ -48,6 +45,4 @@ public class InorderTraversal {
         resultList.add(root.val);
         inorder(root.right, resultList);
     }
-
-
 }

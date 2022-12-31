@@ -1,5 +1,6 @@
 package com.datastruct.newcode.array;
 
+
 import java.util.Arrays;
 
 public class Array<E> implements ArrayInterface<E> {

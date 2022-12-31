@@ -46,7 +46,6 @@ public class LeetCode_03_LengthOfLongestSubstring {
         return result;
     }
 
-
     public static int lengthOfLongestSubstring(String s) {
 
         if (s == null) {

@@ -5,8 +5,9 @@ package com.datastruct.oldcode.ch01;
 public class Main {
     public static void main(String[] args) {
         Array<Integer> arr = new Array<Integer>();
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 10; i++) {
             arr.addLastElem(i);
+        }
         System.out.println(arr);
 
         arr.addElem(1, 100);

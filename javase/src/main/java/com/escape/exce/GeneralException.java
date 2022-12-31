@@ -67,20 +67,20 @@ public class GeneralException {
             java中的fail fast机制
             迭代器工作在一个独立的线程中
          */
-        // for (User user : users) {
-        //     if (user.getName().equals("imooc")) {
-        //         users.remove(user);
-        //     }
-        // }
-
-        // 如果使用迭代器就没有问题
-        Iterator<User> iterator = users.iterator();
-        while (iterator.hasNext()) {
-            User user = iterator.next();
+        for (User user : users) {
             if (user.getName().equals("imooc")) {
-                iterator.remove();
+                users.remove(user);
             }
         }
+
+        // 如果使用迭代器就没有问题
+        // Iterator<User> iterator = users.iterator();
+        // while (iterator.hasNext()) {
+        //     User user = iterator.next();
+        //     if (user.getName().equals("imooc")) {
+        //         iterator.remove();
+        //     }
+        // }
     }
 
     // 创建一个StaffType.values.lenth 长度的hashMap
@@ -131,15 +131,15 @@ public class GeneralException {
         // );
         // concurrentModificationException(users);
         ArrayList<User> works = new ArrayList<>(
-                Arrays.asList(new Worker("aa"), new Worker("bb"))
+                Arrays.asList(new Worker("aa"), new Worker("imooc"))
         );
         concurrentModificationException(works);
         StaffType ss = enumFind("ss");
         System.out.println(ss);
-
-        System.out.println("-----------------------");
-        User user1 = new Manager();
-        User user2 = new Worker();
+        //
+        // System.out.println("-----------------------");
+        // User user1 = new Manager();
+        // User user2 = new Worker();
 
         // Manager m1 = (Manager) user1;
         // Manager m2 = (Manager) user2;
@@ -148,7 +148,7 @@ public class GeneralException {
         // System.out.println(user2 instanceof Manager);
 
         // 3. 枚举查找异常
-        System.out.println(enumFind("RD"));
-        System.out.println(enumFind("abc"));
+        // System.out.println(enumFind("RD"));
+        // System.out.println(enumFind("abc"));
     }
 }

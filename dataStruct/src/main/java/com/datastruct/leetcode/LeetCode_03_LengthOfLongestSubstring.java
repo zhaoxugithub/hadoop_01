@@ -10,7 +10,6 @@ import java.util.*;
  * Version 1.0
  **/
 public class LeetCode_03_LengthOfLongestSubstring {
-
     public static int lengthOfLongestSubstring(String s) {
 
         if (s == null) {

@@ -13,12 +13,9 @@ import java.util.concurrent.Future;
  * Description: com.java.thread.c_032_threadpool
  */
 public class S_03_FutureDemo {
-
-
     public static void main(String[] args) {
-
-        //线程池接口，实际上返回的是ThreadPoolExecutor线程池，ThreadPoolExecutor实现了ExecutorService这个接口
-        //Executors 这个是一个工厂类，专门用来创建各种线程池
+        // 线程池接口，实际上返回的是ThreadPoolExecutor线程池，ThreadPoolExecutor实现了ExecutorService这个接口
+        // Executors 这个是一个工厂类，专门用来创建各种线程池
         ExecutorService executorService = Executors.newCachedThreadPool();
         Future future = executorService.submit(new Callable<Object>() {
             @Override
@@ -32,18 +29,13 @@ public class S_03_FutureDemo {
                 }
             }
         });
-
         try {
             Integer result = (Integer) future.get();
             System.out.println(result);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        //这个是用来终止线程执行
+        // 这个是用来终止线程执行
         executorService.shutdown();
-
     }
-
-
 }

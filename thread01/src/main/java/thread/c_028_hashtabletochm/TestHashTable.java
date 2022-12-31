@@ -77,7 +77,6 @@ public class TestHashTable {
         //188
         System.out.println(end - start);
         System.out.println(m.size());
-
         //-------------下面的这段程序是用来测试hashtable的读性能----------------------
         /*
             由此可见,hashtable的读性能是非常差的
@@ -90,11 +89,9 @@ public class TestHashTable {
                 }
             });
         }
-
         for (Thread t : threads) {
             t.start();
         }
-
         for (Thread t : threads) {
             try {
                 t.join();
@@ -102,10 +99,8 @@ public class TestHashTable {
                 e.printStackTrace();
             }
         }
-
         end = System.currentTimeMillis();
         //31043
         System.out.println(end - start);
     }
-
 }

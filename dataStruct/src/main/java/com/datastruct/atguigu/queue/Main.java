@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        //测试一把
+        // 测试一把
         // 创建一个队列
         ArrayQueue queue = new ArrayQueue(3);
         char key = ' ';
-        //接收用户输入
+        // 接收用户输入
         Scanner scanner = new Scanner(System.in);
         boolean loop = true;
         while (loop) {
@@ -19,7 +19,7 @@ public class Main {
             System.out.println("g(get): 从队列取出数据");
             System.out.println("h(head): 查看队列头的数据");
             key = scanner.next().charAt(0);
-            //接收一个字符
+            // 接收一个字符
             switch (key) {
                 case 's':
                     queue.showAll();
@@ -29,7 +29,7 @@ public class Main {
                     int value = scanner.nextInt();
                     queue.pushData(value);
                     break;
-                case 'g': //取出数据
+                case 'g': // 取出数据
                     try {
                         int res = queue.popData();
                         System.out.printf("取出的数据是%d\n", res);
@@ -38,7 +38,7 @@ public class Main {
                         System.out.println(e.getMessage());
                     }
                     break;
-                case 'h': //查看队列头的数据
+                case 'h': // 查看队列头的数据
                     try {
                         int res = queue.getData();
                         System.out.printf("队列头的数据是%d\n", res);
@@ -47,7 +47,7 @@ public class Main {
                         System.out.println(e.getMessage());
                     }
                     break;
-                case 'e': //退出
+                case 'e': // 退出
                     scanner.close();
                     loop = false;
                     break;

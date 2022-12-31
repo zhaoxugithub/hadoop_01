@@ -15,12 +15,8 @@ import java.util.Iterator;
  **/
 @SuppressWarnings("all")
 public class ForeachOptimize {
-
-
     private static Collection<Integer> left = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
     private static Collection<Integer> right = Arrays.asList(1, 2, 3, 4, 5);
-
-
     /*
         集合迭代经常犯的错误
      */

@@ -14,19 +14,19 @@ public class S_05_SimpleThreadPool {
 
     public static void main(String[] args) throws InterruptedException {
 
-        //创建一个具有5个线程的线程池
+        // 创建一个具有5个线程的线程池
         ExecutorService executorService = Executors.newFixedThreadPool(5);
-        //执行10个任务
+        // 执行10个任务
         for (int i = 0; i < 10; i++) {
             executorService.submit(new WorkerThread("t" + i));
         }
-        //任务执行完之后线程池需要关闭,也是异步执行的
-        //该方法会停止ExecutorService添加新的任务, 但是老任务还是会继续执行. 这个方法是立刻返回
+        // 任务执行完之后线程池需要关闭,也是异步执行的
+        // 该方法会停止ExecutorService添加新的任务, 但是老任务还是会继续执行. 这个方法是立刻返回
         executorService.shutdown();
 
-        //main线程阻塞等待所有的线程执行完毕之后才继续往下面执行
-        //executorService.awaitTermination(3000, TimeUnit.MILLISECONDS);
-        //或者用这一行，判断线程池任务是否已经终止了，没有终止一直循环
+        // main线程阻塞等待所有的线程执行完毕之后才继续往下面执行
+        // executorService.awaitTermination(3000, TimeUnit.MILLISECONDS);
+        // 或者用这一行，判断线程池任务是否已经终止了，没有终止一直循环
         while (!executorService.isTerminated()) {
         }
         System.out.println("Finished all Thread");

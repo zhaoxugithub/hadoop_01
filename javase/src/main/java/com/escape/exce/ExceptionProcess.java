@@ -12,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 @SuppressWarnings("all")
 @Slf4j
 public class ExceptionProcess {
-
     private static class User {
     }
 
@@ -59,8 +58,9 @@ public class ExceptionProcess {
 
     public static void main(String[] args) {
         ExceptionProcess process = new ExceptionProcess();
-        // process.canNotCatchNpeException();
-        process.canCatchNpeException();
+        // 异常类型不一样，捕获不到
+        process.canNotCatchNpeException();
+        // process.canCatchNpeException();
     }
 
 }

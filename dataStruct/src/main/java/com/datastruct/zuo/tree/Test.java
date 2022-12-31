@@ -32,14 +32,14 @@ public class Test {
                     pop = stack.pop();
                 }
                 Character character = characterCharacterMap.get(aChar);
-                if (pop != character) {
+                assert pop != null;
+                if (!pop.equals(character)) {
                     return false;
                 }
             }
         }
         return stack.isEmpty();
     }
-
 
     public static class Node {
         public int value;
@@ -108,21 +108,17 @@ public class Test {
         head.left.left.right = new Node(1);
         printTree(head);
         List<Integer> ks = new ArrayList<>();*/
-
 //        boolean valid = isValid("))");
 //        System.out.println(valid);
 //
 //        List<String> list = new ArrayList<>();
-
         Set<Integer> set = new HashSet<Integer>();
         set.add(2);
         set.add(1);
         set.add(3);
         set.stream().forEach(System.out::println);
-
-        Integer[] t1= new Integer[3];
+        Integer[] t1 = new Integer[3];
         Integer[] integers = set.toArray(new Integer[3]);
-
         System.out.println(Arrays.toString(integers));
     }
 }

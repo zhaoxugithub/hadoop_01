@@ -10,10 +10,7 @@ import java.util.concurrent.*;
  * Description: com.java.thread.c_032_threadpool
  */
 public class S_02_FutureDemo {
-
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-
-
         ExecutorService executorService = Executors.newCachedThreadPool();
 //        Future<Integer> submit = executorService.submit(new Callable<Integer>() {
 //            @Override
@@ -24,18 +21,14 @@ public class S_02_FutureDemo {
 //        });
 //        Integer integer = submit.get();
 //        System.out.println(integer);
-
         Future<Integer> submit = executorService.submit(() -> {
-
             System.out.println("start...");
             TimeUnit.SECONDS.sleep(1);
             return 1;
         });
         Integer integer = submit.get();
         System.out.println(integer);
-
-        //这个是用来终止线程执行
+        // 这个是用来终止线程执行
         executorService.shutdown();
-
     }
 }

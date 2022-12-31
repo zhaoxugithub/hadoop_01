@@ -12,10 +12,8 @@ import java.util.concurrent.*;
 public class S_01_FutureDemo {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-
         ExecutorService executorService = Executors.newCachedThreadPool();
-
-        //异步执行
+        // 异步执行
 //        Future<?> submit = executorService.submit(new Runnable() {
 //            @Override
 //            public void run() {
@@ -28,8 +26,7 @@ public class S_01_FutureDemo {
 //                System.out.println("over");
 //            }
 //        });
-
-        //下面这个方法采用lambda
+        // 下面这个方法采用lambda
         Future<?> submit = executorService.submit(() -> {
             try {
                 System.out.println(Thread.currentThread().getName() + "run....");
@@ -39,25 +36,14 @@ public class S_01_FutureDemo {
             }
             System.out.println("over");
         });
-        //get方法一直处于阻塞状态,直到上面over执行完之后才会执行
-
+        // get方法一直处于阻塞状态,直到上面over执行完之后才会执行
         Object o = submit.get();
         System.out.println(o);
-
         System.out.println(submit.isDone());
-
         System.out.println(submit.isCancelled());
-
         System.out.println(submit.cancel(true));
-
         System.out.println(submit.isCancelled());
-
-
-
-        //这个是用来终止线程执行
+        // 这个是用来终止线程执行
         executorService.shutdown();
-
     }
-
-
 }
