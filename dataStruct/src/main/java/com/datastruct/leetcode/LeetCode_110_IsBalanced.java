@@ -52,10 +52,6 @@ public class LeetCode_110_IsBalanced {
         root.right.right.right = new TreeNode(5);
         root.right.right.right.right = new TreeNode(6);
 
-
         System.out.println(babble.getHeight(root));
-
     }
-
-
 }

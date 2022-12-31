@@ -27,4 +27,15 @@ public class EASY_plusOne_66 {
         return res;
     }
 
+    public int[] plusOne2(int[] digits) {
+        if (digits == null || digits.length == 0) {
+            return new int[1];
+        }
+        int tem = 0;
+        for (int i = digits.length - 1; i >= 0; i--) {
+
+        }
+        return digits;
+    }
+
 }
